@@ -33,6 +33,9 @@ func main() {
 	v1 := r.Group("/v1")
 	{
 		v1.GET("/", handlers.Home)
+		v1.GET("/students", handlers.GetStudents)
+		v1.POST("/students", handlers.CreateStudent)
+		v1.GET("/students/:id", handlers.FindStudent)
 	}
 
 	r.NoRoute(func(c *gin.Context) {
